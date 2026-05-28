@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plánovač Projektů - Paper Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Plánovač</h2>
+            <button id="add-plan-btn">➕ Nový plán</button>
+            <button id="remove-plan-btn">❌ Smazat</button>
+            <button id="save-project-btn">💾 Uložit</button>
+        </aside>
+        <main class="workspace" id="workspace">
+            <div id="canvas-container">
+                <svg id="connections-layer"></svg>
+                <div id="plans-container"></div>
+            </div>
+            <div class="camera-info">
+                Zoom: <span id="zoom-level">100%</span> | Prostřední tlačítko pro posun 
+                <button id="reset-camera-btn" style="margin-left: 10px; cursor: pointer; border: 1px solid #000; background: #fff; padding: 2px 5px; font-family: inherit;">Reset kamery</button>
+             </div>
+        </main>
+    </div>
+
+    <!-- Modální okno pro přidání/editaci plánu -->
+    <div id="plan-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title-text">Nový Plán</h3>
+            <input type="hidden" id="edit-plan-id">
+            <input type="text" id="plan-title" placeholder="Nadpis plánu">
+            <input type="text" id="plan-banner" placeholder="URL banneru (volitelné)">
+            <textarea id="plan-desc" placeholder="Popis plánu"></textarea>
+            <div id="outputs-count-container" class="outputs-count">
+                <label>Počet výstupů (1-5):</label>
+                <input type="number" id="plan-outputs" min="1" max="5" value="1">
+            </div>
+            <div class="modal-actions">
+                <button id="confirm-plan-btn">Potvrdit</button>
+                <button id="cancel-plan-btn">Zrušit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
